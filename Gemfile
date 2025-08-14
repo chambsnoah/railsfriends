@@ -22,6 +22,9 @@ gem "kamal", require: false
 
 gem "thruster", require: false
 
+# Use pg for PostgreSQL
+gem "pg", "~> 1.6"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -32,11 +35,7 @@ end
 
 group :development do
   gem "web-console"
-  gem "sqlite3", ">= 2.1"
-end
-
-group :production do
-  gem "pg", "~> 1.6", ">= 1.6.1"
+  gem "sqlite3", ">= 1.7"
 end
 
 group :test do

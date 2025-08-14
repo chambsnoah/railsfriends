@@ -1,8 +1,12 @@
 require "test_helper"
 
 class FriendsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @friend = friends(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -17,7 +21,7 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create friend" do
     assert_difference("Friend.count") do
-      post friends_url, params: { friend: { email: @friend.email, first_name: @friend.first_name, last_name: @friend.last_name, phone: @friend.phone, twitter: @friend.twitter } }
+      post friends_url, params: { friend: { email: "new@example.com", first_name: "New", last_name: "Friend", phone: "555-1234", twitter: "newuser" } }
     end
 
     assert_redirected_to friend_url(Friend.last)
@@ -34,7 +38,7 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update friend" do
-    patch friend_url(@friend), params: { friend: { email: @friend.email, first_name: @friend.first_name, last_name: @friend.last_name, phone: @friend.phone, twitter: @friend.twitter } }
+    patch friend_url(@friend), params: { friend: { email: "updated@example.com", first_name: "Updated", last_name: "Name", phone: "555-9999", twitter: "updated" } }
     assert_redirected_to friend_url(@friend)
   end
 

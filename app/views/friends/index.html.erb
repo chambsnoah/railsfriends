@@ -1,26 +1,28 @@
 <% content_for :title, "Friends" %>
 
-<div id="friends">
-  <table class="table table-striped table-bordered table-hover">
-    <thead class="table-dark">
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Twitter</th>
-        <th>User Id</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @friends.each do |friend| %>
-        <%= render friend %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<% if user_signed_in? %>
 
-<%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
+  <div id="friends">
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Twitter</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @friends.each do |friend| %>
+          <%= render friend %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
+<% else%>
+  <h1>Hello World!</h1>
+  This is my first Rails Webpage...
+<% end %>

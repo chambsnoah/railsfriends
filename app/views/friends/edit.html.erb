@@ -8,5 +8,8 @@
 
 <div>
   <%= link_to "Show this friend", @friend, class:"btn btn-secondary" %>
+
+  <%= link_to "Delete", @friend, data: { "turbo-method": :delete, "turbo-confirm": "Are you sure you want to delete this friend?" }, class: "btn btn-danger" %>
+
   <%= link_to "Back to friends", friends_path, class:"btn btn-dark"  %>
 </div>

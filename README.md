@@ -2,6 +2,8 @@
 
 A simple Ruby on Rails application for managing your personal contacts and friends list.
 
+See the live demo: https://railsfriends-0q8e.onrender.com
+
 ## Features
 
 - **User Authentication**: Secure user registration and login powered by Devise

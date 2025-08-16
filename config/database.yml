@@ -23,4 +23,7 @@ production:
   pool: 5
   # It reads the connection details from the DATABASE_URL environment variable,
   # which Render will provide to your app automatically.
-  url: <%= ENV['DATABASE_URL'] %>
+  primary:
+    url: <%= ENV["DATABASE_URL"] %>
+  queue:
+    url: <%= ENV["DATABASE_URL"] %>

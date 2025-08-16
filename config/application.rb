@@ -10,9 +10,7 @@ module Friends
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
-    # Configure Solid Queue to use the primary database.
-    # This is done here to avoid boot-time load order issues in production.
-    config.solid_queue.connects_to = { database: { writing: :primary } }
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
